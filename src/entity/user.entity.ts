@@ -35,4 +35,7 @@ export class User extends BaseEntity {
 
   @Column({ type: 'timestamp', name: 'USE_UPDATE_AT' })
   public updatedAt: Date;
+
+  @Column({ type: 'varchar' })
+  public a: string;
 }
