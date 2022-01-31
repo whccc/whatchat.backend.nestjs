@@ -34,7 +34,6 @@ export class AppModule {
   public static port: number | string;
 
   constructor(private readonly _configService: ConfigService) {
-    console.log(this._configService.get(Configuration.DATABASE));
     AppModule.port = this._configService.get(Configuration.PORT);
   }
 }
