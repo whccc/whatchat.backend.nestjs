@@ -1,11 +1,8 @@
 import * as fs from 'fs';
 import { parse } from 'dotenv';
-import { Configuration } from './config.keys';
 
 export class ConfigService {
-  private readonly envConfig: {
-    [key: string]: string;
-  };
+  private readonly envConfig: { [key: string]: string };
 
   constructor() {
     const isDevelopmentEnv = process.env.NODE_ENV !== 'production';
@@ -15,7 +12,7 @@ export class ConfigService {
       const existsPath = fs.existsSync(envFilePath);
 
       if (!existsPath) {
-        console.log('.Env no encontrado');
+        console.log('.env file does not exist');
         process.exit(0);
       }
 
@@ -27,7 +24,7 @@ export class ConfigService {
     }
   }
 
-  public get(key: string): string {
+  get(key: string): string {
     return this.envConfig[key];
   }
 }

@@ -9,6 +9,8 @@ export class UserRepository
   implements IUserRepository
 {
   public async createUser(UserDTO: UserCreateDto): Promise<User> {
-    return User.create(UserDTO);
+    const UserEntity = User.create(UserDTO);
+    await UserEntity.save();
+    return UserEntity;
   }
 }

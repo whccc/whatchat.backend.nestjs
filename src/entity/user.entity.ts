@@ -1,8 +1,9 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, Generated, PrimaryColumn } from 'typeorm';
 
-@Entity('user')
+@Entity({ name: 'TBL_USER' })
 export class User extends BaseEntity {
-  @PrimaryGeneratedColumn('increment')
+  @PrimaryColumn({ name: 'USE_ID' })
+  @Generated('increment')
   public id: number;
 
   @Column({
@@ -35,7 +36,4 @@ export class User extends BaseEntity {
 
   @Column({ type: 'timestamp', name: 'USE_UPDATE_AT' })
   public updatedAt: Date;
-
-  @Column({ type: 'varchar' })
-  public a: string;
 }
