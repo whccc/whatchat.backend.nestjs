@@ -12,7 +12,6 @@ export class ConfigService {
       const existsPath = fs.existsSync(envFilePath);
 
       if (!existsPath) {
-        console.log('.env file does not exist');
         process.exit(0);
       }
 
