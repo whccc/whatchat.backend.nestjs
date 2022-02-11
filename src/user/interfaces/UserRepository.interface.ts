@@ -3,4 +3,5 @@ import { UserCreateDto } from '../dto/UserCreate.dto';
 
 export interface IUserRepository {
   createUser(UserDTO: UserCreateDto): Promise<User>;
+  searchEmailDuplicate(email: string): Promise<User>;
 }

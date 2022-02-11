@@ -13,4 +13,8 @@ export class UserRepository
     await UserEntity.save();
     return UserEntity;
   }
+
+  public async searchEmailDuplicate(email: string): Promise<User> {
+    return User.findOne({ where: { email } });
+  }
 }
