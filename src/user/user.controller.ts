@@ -25,6 +25,7 @@ export class UserController {
       return new NotAcceptableException();
     }
     return this.userService.getUserByEmail(params.email.trim());
+    console.log('prueba');
   }
 
   @Get('user-by-name/:userName')
