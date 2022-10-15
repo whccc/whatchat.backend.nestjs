@@ -1,8 +1,16 @@
-import { BaseEntity, Column, Entity, Generated, PrimaryColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  Generated,
+  JoinColumn,
+  OneToOne,
+  PrimaryColumn,
+} from 'typeorm';
 
-@Entity({ name: 'TBL_USER' })
+@Entity({ name: 'tbluser' })
 export class User extends BaseEntity {
-  @PrimaryColumn({ name: 'USE_ID' })
+  @PrimaryColumn()
   @Generated('increment')
   public id: number;
 
@@ -11,7 +19,6 @@ export class User extends BaseEntity {
     length: '20',
     unique: true,
     nullable: false,
-    name: 'USE_EMAIL',
   })
   public email: string;
 
@@ -19,7 +26,6 @@ export class User extends BaseEntity {
     type: 'varchar',
     length: '20',
     nullable: false,
-    name: 'USE_PASSWORD',
   })
   public password: string;
 
@@ -27,13 +33,25 @@ export class User extends BaseEntity {
     type: 'varchar',
     length: '20',
     nullable: false,
-    name: 'USE_USERNAME',
   })
   public userName: string;
 
-  @Column({ type: 'timestamp', name: 'USE_CREATE_AT' })
+  @Column({ type: 'varchar', length: '100', nullable: false })
+  @Generated('uuid')
+  public idUnique: string;
+
+  @Column()
+  public picture: string;
+
+  @Column()
+  public phone: string;
+
+  @Column()
+  public comment: string;
+
+  @Column({ type: 'timestamp' })
   public createdAt: Date;
 
-  @Column({ type: 'timestamp', name: 'USE_UPDATE_AT' })
+  @Column({ type: 'timestamp' })
   public updatedAt: Date;
 }
