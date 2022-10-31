@@ -6,6 +6,7 @@ import { ConfigService } from './config/config.service';
 import { UserModule } from './user/user.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path/posix';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   providers: [],
@@ -16,6 +17,7 @@ import { join } from 'path/posix';
       rootPath: join(__dirname, '..', 'pictures'),
     }),
     UserModule,
+    AuthModule,
   ],
 })
 export class AppModule {
