@@ -12,7 +12,7 @@ import { UserService } from './user.service';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get('user-by-name/:userName')
   public async getUsersByName(@Param() params: { userName: string }) {
     const userName = params.userName.trim();

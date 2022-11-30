@@ -12,4 +12,12 @@ export class UserRepository
       userName: Like(`%${userName}%`),
     });
   }
+
+  public async getUsersByIdUnique(usersIdUnique: Array<string>): Promise<any> {
+    return User.createQueryBuilder('tbluser')
+      .where('tbluser.idunique IN (:...usersIdUnique)', {
+        usersIdUnique,
+      })
+      .getMany();
+  }
 }
