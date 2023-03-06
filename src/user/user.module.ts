@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { MulterModule } from '@nestjs/platform-express/multer';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { HelpersFunctions } from 'src/helper/helper.functions';
 import { UserController } from './user.controller';
